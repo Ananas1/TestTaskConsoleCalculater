@@ -17,10 +17,7 @@ namespace ConsoleCalculator
 
             //setOfOperations.Add(Addition.GetID(), typeof(Addition));
             setOfOperations.Add(Addition.GetID(), new Addition());
-            // _ = Activator.CreateInstance(setOfOperations[Addition.GetID()]);
-           // setOfOperations.Add(Subtraction.GetID(), typeof(Subtraction));
-            //setOfOperations.Add(Multiplication.GetID(), typeof(Multiplication));
-            //setOfOperations.Add(Division.GetID(), typeof(Division));
+            
             setOfOperations.Add(Addition.GetID(), new Subtraction());
             setOfOperations.Add(Addition.GetID(), new Multiplication());
             setOfOperations.Add(Addition.GetID(), new Division());
@@ -46,13 +43,8 @@ namespace ConsoleCalculator
         {
 
             List<string> Inputs = new List<string>();
-
             int iter = 0;
-            string Token;
-
-            //foreach (AbstractBinaryOperation op in setOfOperations)
-            //{
-            //Console.WriteLine(op);
+            string Token;         
             while (iter < inputExpression.Length)
             {
                 Console.WriteLine($"Итерация: {iter}");
