@@ -18,9 +18,9 @@ namespace ConsoleCalculator
             //setOfOperations.Add(Addition.GetID(), typeof(Addition));
             setOfOperations.Add(Addition.GetID(), new Addition());
             
-            setOfOperations.Add(Addition.GetID(), new Subtraction());
-            setOfOperations.Add(Addition.GetID(), new Multiplication());
-            setOfOperations.Add(Addition.GetID(), new Division());
+            setOfOperations.Add(Subtraction.GetID(), new Subtraction());
+            setOfOperations.Add(Multiplication.GetID(), new Multiplication());
+            setOfOperations.Add(Division.GetID(), new Division());
 
         }
         //Type Ad = setOfOperations[Addition.GetID()];
