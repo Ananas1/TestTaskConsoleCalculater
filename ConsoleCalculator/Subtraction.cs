@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConsoleCalculator
+﻿namespace ConsoleCalculator
 {
 
     public class Subtraction : AbstractBinaryOperation
     {
-        //public Subtraction()
-        //{
-        //    Preority = 1;
-        //}
+ 
 
         public override bool IsInput(string input)
         {
-            return (input == "-");
+            return (input == GetID());
                        
         }
 

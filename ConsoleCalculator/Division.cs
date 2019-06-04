@@ -6,29 +6,14 @@ namespace ConsoleCalculator
 {
     public class Division : AbstractBinaryOperation
     {
-        //public Division()
-        //{
-          //  Priority = 2;
-        //}
-
+ 
         public override bool IsInput(string input)
         {
-            return (input == "/");
+            return (input == GetID());
             
         }
 
-        //public override byte GetPriority(string input)
-        //{
-        //    if (IsInput(input))
-        //    {
-        //        return Priority = 2;
-        //    }
-        //    else
-        //    {
-        //        return Priority = 0;
-        //    }
-        //}
-        public override string GetID() //допилить override
+        public override string GetID() 
         {
             return "/";
         }

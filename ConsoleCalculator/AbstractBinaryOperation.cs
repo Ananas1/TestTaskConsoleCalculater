@@ -7,8 +7,6 @@ namespace ConsoleCalculator
     public abstract class AbstractBinaryOperation : AbstractOperation
     {
 
-
-        //    public abstract bool IsInput(string input);
         public abstract double Calculate(double arg1, double arg2);
 
         public override void Calculate(Stack<double> stack)
@@ -17,7 +15,7 @@ namespace ConsoleCalculator
             double arg2 = stack.Pop();
 
             double res = Calculate(arg1, arg2);
-            stack.Push(res);//throw new NotImplementedException();
+            stack.Push(res);
         }
 
         public override byte GetPriority(string input)
@@ -31,19 +29,5 @@ namespace ConsoleCalculator
                 return Priority = 0;
             }
         }
-
-        
-        //public abstract bool IsInput(string input);
-
-        //    public AbstractBinaryOperation()
-        //    {
-
-        //    }
-
-        //    //public abstract double СalcSulate(Stack<double> stack);
-        //public override void Calculate(Stack<double> stack)
-        //{
-
-        //}
     }
 }

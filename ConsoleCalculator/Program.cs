@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ConsoleCalculator
 {
@@ -10,21 +7,25 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
-            //Calculation calculation = new Calculation; 
-            //RPN calc = new RPN();
             string expression;
             do
             {
                 Console.Write("Введите выражение: ");
                 expression = (Console.ReadLine().Replace(" ", string.Empty)).Replace(',', '.').Replace(':', '/').ToLower();
-               // Console.WriteLine(RPN.ConvertToRPN(expression));
-                RPN c = new RPN();
-                //Validation p = new Validation();
-                //Validation.Sep(expression);
-                double calculatorOutput = c.Result(expression);
-                Console.WriteLine(calculatorOutput);
+                RPN calc = new RPN();
+                try
+                {
+                    double calculatorOutput = calc.Result(expression);
+                    Console.Write("Результат: ");
+                    Console.WriteLine(calculatorOutput);
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Error: " + error.Message);
+                }        
+
             }
-            while (Console.ReadLine() != "");  //что-то не работает. Идея в том, что бы выводить сообщение: "Вы ввели пустую строку"
+            while (true); 
         }
     }
 }
