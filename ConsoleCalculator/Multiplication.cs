@@ -14,7 +14,7 @@ namespace ConsoleCalculator
         //{
         //    Priority = 2;
         //}
-        public static string GetID() //допилить override
+        public override string GetID() //допилить override
         {
             return "*";
         }

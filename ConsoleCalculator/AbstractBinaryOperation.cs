@@ -31,6 +31,8 @@ namespace ConsoleCalculator
                 return Priority = 0;
             }
         }
+
+        
         //public abstract bool IsInput(string input);
 
         //    public AbstractBinaryOperation()

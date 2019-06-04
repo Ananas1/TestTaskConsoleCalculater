@@ -17,9 +17,12 @@ namespace ConsoleCalculator
             {
                 Console.Write("Введите выражение: ");
                 expression = (Console.ReadLine().Replace(" ", string.Empty)).Replace(',', '.').Replace(':', '/').ToLower();
-                Console.WriteLine(RPN.SeparateToken(expression));
-
-
+               // Console.WriteLine(RPN.ConvertToRPN(expression));
+                RPN c = new RPN();
+                Validation p = new Validation();
+                p.Sep(expression);
+                double calculatorOutput = c.Result(expression);
+                Console.WriteLine(calculatorOutput);
             }
             while (Console.ReadLine() != "");  //что-то не работает. Идея в том, что бы выводить сообщение: "Вы ввели пустую строку"
         }

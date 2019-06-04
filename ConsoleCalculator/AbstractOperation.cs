@@ -12,5 +12,7 @@ namespace ConsoleCalculator
         public abstract bool IsInput(string input);
 
         public abstract byte GetPriority(string input);
+
+        public abstract string GetID();
     }
 }

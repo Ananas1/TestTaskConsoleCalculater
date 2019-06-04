@@ -6,18 +6,17 @@ namespace ConsoleCalculator
 {
     public class Addition : AbstractBinaryOperation
     {
-        public Addition()
+        public Addition() : base()
         {
             Priority = 1;
         }
-
         public override bool IsInput(string input)
         {
             return (input == GetID());
            
         }
 
-        public static string GetID() //допилить override
+        public override string GetID() 
         {
             return "+";
         }

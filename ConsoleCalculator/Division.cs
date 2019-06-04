@@ -28,14 +28,18 @@ namespace ConsoleCalculator
         //        return Priority = 0;
         //    }
         //}
-        public static string GetID() //допилить override
+        public override string GetID() //допилить override
         {
             return "/";
         }
 
         public override double Calculate(double arg1, double arg2)
         {
-            return arg1 / arg2;
+            if (arg1 == 0)
+            {
+                throw new InvalidOperationException( ("Деление на 0 запрещено!"));
+            }
+            return arg2 / arg1;
         }
     }
 }

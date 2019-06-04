@@ -30,14 +30,14 @@ namespace ConsoleCalculator
             }
         }
 
-        public static string GetID() //допилить override
+        public override string GetID() //допилить override
         {
             return "-";
         }
 
         public override double Calculate(double arg1, double arg2)
         {
-            return arg1 - arg2;
+            return arg2 - arg1;
         }
     }
 }
