@@ -19,8 +19,8 @@ namespace ConsoleCalculator
                 expression = (Console.ReadLine().Replace(" ", string.Empty)).Replace(',', '.').Replace(':', '/').ToLower();
                // Console.WriteLine(RPN.ConvertToRPN(expression));
                 RPN c = new RPN();
-                Validation p = new Validation();
-                p.Sep(expression);
+                //Validation p = new Validation();
+                //Validation.Sep(expression);
                 double calculatorOutput = c.Result(expression);
                 Console.WriteLine(calculatorOutput);
             }

@@ -100,7 +100,7 @@ namespace ConsoleCalculator
 
             //AbstractBinaryOperation value = new Addition();
 
-            foreach (string token in RPN.SeparateToken(input))
+            foreach (string token in Validation.Sep(input.ToString()))
 
             {
                 if ((setOfOperations.ContainsKey(token.ToString())) || token.Equals("(") || token.Equals(")"))
