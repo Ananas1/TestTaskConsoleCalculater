@@ -25,92 +25,12 @@ namespace ConsoleCalculator
 
         }
        
-        public static IEnumerable<string> SeparateToken(string inputExpression)
-        {
-            int iter = 0;
-            string Token;         
-            while (iter < inputExpression.Length)
-            {
-                Token = string.Empty + inputExpression[iter];
-
-                if (!setOfOperations.ContainsKey(Token))
-                {
-                    if (Char.IsDigit(inputExpression[iter]))
-                    {
-                        for (int i = iter + 1; i < inputExpression.Length && (Char.IsDigit(inputExpression[i]) || inputExpression[i] == '.'); i++)
-                        {
-                            Token += inputExpression[i];
-                        }
-                    }
-                }            
-                yield return Token;
-                iter += Token.Length;
-            }
-        }
-
-        public static string[] ConvertToRPN(string input)
-        {
-            List<string> outputSeparated = new List<string>();
-            Stack<string> stack = new Stack<string>();
-            foreach (string token in Validation.Sep(input.ToString()))
-
-            {
-                if ((setOfOperations.ContainsKey(token.ToString())) || token.Equals("(") || token.Equals(")"))
-                {
-                    if (stack.Count > 0 && !token.Equals("("))
-                    {
-                        if (token.Equals(")"))
-                        {
-                            string s = stack.Pop();
-                            while (s != "(")
-                            {
-                                outputSeparated.Add(s);
-                                s = stack.Pop();
-                            }
-                        }
-                        
-                        else if ( stack.Peek().Equals("(") || (setOfOperations[token].GetPriority(token) > setOfOperations[(stack.Peek()).ToString()].GetPriority((stack.Peek()).ToString())) )
-                        {                            
-                            stack.Push(token);                            
-                        }
-                        else
-                        {
-                            while (stack.Count > 0 && (setOfOperations[token].GetPriority(token) <= setOfOperations[(stack.Peek()).ToString()].GetPriority((stack.Peek()).ToString())))
-                            {
-                                outputSeparated.Add(stack.Pop());
-
-                            }
-                            stack.Push(token); 
-                        }
-
-                    }
-                    else
-                    {
-                        stack.Push(token);
-                    }
-
-                }
-                else
-                {
-                    outputSeparated.Add(token);
-                }
-            }
-            if (stack.Count > 0)
-            {
-                foreach (string t in stack)
-                {
-                    outputSeparated.Add(t);
-                }
-            }
-                        
-            return outputSeparated.ToArray();
-           
-        }
+        
 
         public double Result(string input)
         {
             Stack<string> stack = new Stack<string>();
-            Queue<string> queueOfElements = new Queue<string>(ConvertToRPN(input));
+            Queue<string> queueOfElements = new Queue<string>(ConvertationtoRPN.ConvertToRPN(input));
             string lit = queueOfElements.Dequeue();
             NumberFormatInfo provider = new NumberFormatInfo();
             provider.NumberDecimalSeparator = ".";

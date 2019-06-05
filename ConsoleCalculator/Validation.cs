@@ -9,7 +9,7 @@ namespace ConsoleCalculator
     {
         public static string[] Sep(string inputExpression)
         {
-            List<string> tokens = RPN.SeparateToken(inputExpression).ToList();
+            List<string> tokens = SeparatedTokens.SeparateToken(inputExpression).ToList();
             List<string> outputTokens = new List<string>();
             string insertsymb = "0";
             NumberFormatInfo provider = new NumberFormatInfo();
